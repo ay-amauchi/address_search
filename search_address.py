@@ -12,3 +12,15 @@ def search_address(num):
 
     address = f"{pref_name}{city_name}{town_name}"
     return address
+
+
+def main():
+    num = "0287111"
+
+    address = search_address(num)
+
+    assert "岩手県八幡平市大更" == address
+
+
+if __name__ == "__main__":
+    main()
