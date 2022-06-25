@@ -7,7 +7,6 @@ python app.py
 岩手県八幡平市大更
 """
 
-
 import requests
 
 # num = input("郵便番号<ハイフンなし>")
@@ -18,5 +17,9 @@ responce = requests.get(url)
 
 print(responce)
 
-dic = responce.json()
-print(dic)
+dic = responce.json()  # パース
+pref_name = dic["results"][0]["address1"]
+city_name = dic["results"][0]["address2"]
+town_name = dic["results"][0]["address3"]
+print(f"{pref_name}{city_name}{town_name}")
+# print(dic)
