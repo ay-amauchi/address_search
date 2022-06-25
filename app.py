@@ -6,20 +6,19 @@ python app.py
 郵便番号<ハイフンなし>は？0287111
 岩手県八幡平市大更
 """
+from search_address import search_address
 
-import requests
 
-# num = input("郵便番号<ハイフンなし>")
-num = "0287111"
+def main():
+    # num = input("郵便番号<ハイフンなし>")
+    num = "0287111"
 
-url = f"https://zipcloud.ibsnet.co.jp/api/search?zipcode={num}"
-responce = requests.get(url)
+    address = search_address(num)
 
-print(responce)
+    print(address)
 
-dic = responce.json()  # パース
-pref_name = dic["results"][0]["address1"]
-city_name = dic["results"][0]["address2"]
-town_name = dic["results"][0]["address3"]
-print(f"{pref_name}{city_name}{town_name}")
+
 # print(dic)
+
+if __name__ == "__main__":
+    main()
